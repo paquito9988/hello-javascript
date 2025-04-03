@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tipos de Datos en JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f7f7f7;
+      color: #333;
+    }
+    h1 {
+      color: #4CAF50;
+    }
+    button {
+      margin: 10px 5px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+    .output {
+      margin-top: 20px;
+      padding: 10px;
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    pre {
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Tipos de Datos en JavaScript</h1>
+  <p>Haz clic en los botones para ver los valores y tipos de variables:</p>
+
+  <button onclick="mostrarValores()">Mostrar valores actuales</button>
+  <button onclick="mostrarTipos()">Mostrar tipos actuales</button>
+  <button onclick="modificarMismoTipo()">Modificar con mismo tipo</button>
+  <button onclick="modificarDistintoTipo()">Modificar con distinto tipo</button>
+
+  <div class="output" id="output">
+    <pre>Esperando acción...</pre>
+  </div>
+
+  <script>
+    let nombre = "Juan";
+    let edad = 30;
+    let esEstudiante = true;
+    let ciudad;
+    let pais = null;
+    let simbolo = Symbol("simbolo");
+    let bigint = BigInt("12345678901234567890");
+
+    function mostrarValores() {
+      document.getElementById("output").innerHTML = `
+<pre>
+Nombre: ${nombre}
+Edad: ${edad}
+Es estudiante: ${esEstudiante}
+Ciudad: ${ciudad}
+País: ${pais}
+Símbolo: ${simbolo.toString()}
+BigInt: ${bigint}
+</pre>`;
+    }
+
+    function mostrarTipos() {
+      document.getElementById("output").innerHTML = `
+<pre>
+Tipo de nombre: ${typeof nombre}
+Tipo de edad: ${typeof edad}
+Tipo de esEstudiante: ${typeof esEstudiante}
+Tipo de ciudad: ${typeof ciudad}
+Tipo de país: ${typeof pais}
+Tipo de símbolo: ${typeof simbolo}
+Tipo de bigint: ${typeof bigint}
+</pre>`;
+    }
+
+    function modificarMismoTipo() {
+      nombre = "Pedro";
+      edad = 25;
+      esEstudiante = false;
+      ciudad = "Madrid";
+      pais = "España";
+      simbolo = Symbol("nuevoSimbolo");
+      bigint = BigInt("98765432109876543210");
+      mostrarValores();
+    }
+
+    function modificarDistintoTipo() {
+      nombre = 123;
+      edad = "treinta";
+      esEstudiante = "sí";
+      ciudad = 456;
+      pais = true;
+      simbolo = 789;
+      bigint = "mil";
+      mostrarValores();
+    }
+  </script>
+</body>
+</html>
